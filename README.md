@@ -182,4 +182,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Ready to level up your life? Start your journey today!** 🚀✨ 
+**Ready to level up your life? Start your journey today!** 🚀✨
