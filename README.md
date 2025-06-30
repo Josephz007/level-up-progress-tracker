@@ -18,7 +18,7 @@ A desktop application that gamifies your daily tasks and goals, inspired by Solo
     - Earn a $50 reward for every 5 levels gained.
     - Track your total earnings, spending, and current balance.
     - Log purchases with a dedicated spending form and view your spending history.
-- **Advanced Statistics**:
+- **Data Visualization**:
     - A dynamic radar chart visualizes the total XP you've earned in each category (e.g., Health, Learning, Social).
 - **Task History & Admin Controls**:
     - **Scrollable, paginated task history**: View all completed tasks and penalties, 3 at a time, with navigation controls.
