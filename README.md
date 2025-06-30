@@ -24,7 +24,7 @@ A desktop application that gamifies your daily tasks and goals, inspired by Solo
     - **Scrollable, paginated task history**: View all completed tasks and penalties, 3 at a time, with navigation controls.
     - Delete any entry from your history to revert its effects (XP and completion status for tasks, or restore a penalty if deleted).
     - Securely reset all progress with a PIN-based confirmation.
-    - ~~Undo your last task submission with a single click.~~ (Now replaced by granular task/penalty deletion in history.)
+    -Granular task/penalty deletion in history.
 
 ## Setup & Automation
 
@@ -56,7 +56,7 @@ To ensure penalties are assigned automatically every day, set up the included `a
     ```bash
     crontab -e
     ```
-3.  **Add the job**: Add the following line, replacing `/path/to/your/python` with the output from step 1 and updating the script path if necessary. This example runs the job daily at 1:00 AM.
+3.  **Add the job**: Add the following line, replacing `/path/to/your/python` with the output from step 1 and updating the script path if necessary. This runs the job daily at 1:00 AM.
     ```
     0 1 * * * /path/to/your/python /Users/josephzhai/Documents/PersonalProj/Solo_Leveling/auto_reset.py
     ```
