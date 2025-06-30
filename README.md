@@ -79,7 +79,6 @@ level-up-progress-tracker/
 ├── app.py                          # Main Streamlit application
 ├── auto_reset.py                   # Automated penalty assignment script
 ├── system_flowchart.html           # Interactive system architecture diagram
-├── create_desktop_app.sh           # Desktop app creation script
 ├── requirements.txt                # Python dependencies
 ├── README.md                       # This file
 ├── Planning.txt                    # Original project blueprint
