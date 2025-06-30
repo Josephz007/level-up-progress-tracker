@@ -43,9 +43,12 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Personal data (optional - remove if you want to share your data)
-# data/progress.json
-# data/rewards.json
+# Personal data - exclude from GitHub
+data/progress.json
+data/rewards.json
+
+# Keep templates but exclude personal progress
+# data/tasks.json
 
 # Logs
 *.log
@@ -55,4 +58,7 @@ Thumbs.db
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local 
+.env.production.local
+
+# Desktop app files (optional - remove if you want to include them)
+Level Up Tracker.app/ 

@@ -1,71 +1,185 @@
-# Level Up - Life RPG Tracker
+# 🎮 Level Up - Life Progress Tracker
 
-A desktop application that gamifies your daily tasks and goals, inspired by Solo Leveling. Track your progress, earn XP, and level up in real life!
+A gamified desktop application that transforms your daily tasks and goals into an RPG experience, inspired by Solo Leveling. Track your progress, earn XP, level up, and unlock rewards in real life!
 
-## Features
+![Level Up Tracker](https://img.shields.io/badge/Status-Active-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0-red)
 
-- **Dynamic Task Tracking**: Manage daily, weekly, monthly, and one-time tasks, each with its own submission button.
-- **Time-Aware System**:
-    - Each task category has a countdown timer (hours for daily, days for weekly/monthly).
-    - A 1-hour grace period allows you to submit tasks even after the deadline.
-- **XP and Leveling System**: Gain XP for completing tasks and watch your level grow.
-- **Robust Penalty System**:
-    - Penalties are automatically assigned for uncompleted daily tasks by a scheduled background job.
-    - 1 missed task = 1 small penalty; 2+ missed tasks = 1 big penalty.
-    - View and complete active penalties in the UI.
-    - **Completed penalties are now logged in your Task History.** If you delete a completed penalty from the history, it will reappear as an active penalty to be completed again.
-- **Detailed Money & Rewards**:
-    - Earn a $50 reward for every 5 levels gained.
-    - Track your total earnings, spending, and current balance.
-    - Log purchases with a dedicated spending form and view your spending history.
-- **Advanced Statistics**:
-    - A dynamic radar chart visualizes the total XP you've earned in each category (e.g., Health, Learning, Social).
-- **Task History & Admin Controls**:
-    - **Scrollable, paginated task history**: View all completed tasks and penalties, 3 at a time, with navigation controls.
-    - Delete any entry from your history to revert its effects (XP and completion status for tasks, or restore a penalty if deleted).
-    - Securely reset all progress with a PIN-based confirmation.
-    - ~~Undo your last task submission with a single click.~~ (Now replaced by granular task/penalty deletion in history.)
+## ✨ Features
 
-## Setup & Automation
+### 🎯 **Core Gameplay**
+- **Dynamic Task Tracking**: Manage daily, weekly, monthly, and one-time tasks with separate submission buttons
+- **XP & Leveling System**: Gain experience points for completing tasks and watch your level grow (100 XP per level)
+- **Money & Rewards**: Earn $50 for every 5 levels and spend on custom rewards
+- **Grace Period System**: 1-hour buffer after deadlines to complete tasks without penalties
 
-### Running the App
+### ⏰ **Smart Time Management**
+- **Real-time Countdown Timers**: Visual timers for each task category
+- **Grace Period Indicators**: Clear indication when grace period is active
+- **Automated Penalty System**: Background cron job assigns penalties for missed daily tasks
+- **Period-based Tracking**: Tasks reset automatically based on their category
 
-1.  **Install Python 3.8+**
-2.  **Install dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Run the application**:
-    ```bash
-    streamlit run app.py
-    ```
-4.  **(Optional) Create a desktop shortcut**:
-    *   Open the app in Chrome.
-    *   Go to **Menu > More Tools > Create Shortcut**.
-    *   Name it "Level Up Tracker" and check "Open as window".
+### 🎨 **Advanced UI & Analytics**
+- **Interactive Radar Chart**: Visualize XP earned per category with fixed 1000 XP scale
+- **Task History Log**: Scrollable, paginated history with delete functionality
+- **Money Tracking**: Complete spending history and balance management
+- **Modern Design**: Clean, responsive interface with smooth animations
 
-### Setting Up Automated Penalties (Cron Job on macOS/Linux)
+### 🔒 **Privacy & Data Management**
+- **Personal Data Protection**: Progress and rewards data excluded from repository
+- **Template System**: Easy setup with template files for new users
+- **Secure Reset**: PIN-protected progress reset functionality
+- **Granular Control**: Delete individual tasks/penalties from history
 
-To ensure penalties are assigned automatically every day, set up the included `auto_reset.py` script to run as a cron job.
+### 🖥️ **Desktop Integration**
+- **Native Desktop App**: Double-click launcher for macOS
+- **Automatic Browser Launch**: Opens app in default browser
+- **Background Server**: Runs Streamlit server automatically
+- **Easy Installation**: Simple setup scripts for desktop integration
 
-1.  **Find your Python path**:
-    ```bash
-    which python
-    ```
-2.  **Open your crontab**:
-    ```bash
-    crontab -e
-    ```
-3.  **Add the job**: Add the following line, replacing `/path/to/your/python` with the output from step 1 and updating the script path if necessary. This example runs the job daily at 1:00 AM.
-    ```
-    0 1 * * * /path/to/your/python /Users/josephzhai/Documents/PersonalProj/Solo_Leveling/auto_reset.py
-    ```
-4.  **Save and exit** the editor.
+## 🚀 Quick Start
 
-## Project Structure
+### **Option 1: Desktop App (Recommended)**
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Josephz007/level-up-progress-tracker.git
+   cd level-up-progress-tracker
+   ```
 
--   `app.py`: The main Streamlit application file.
--   `auto_reset.py`: The automation script for assigning daily penalties (now assigns unique IDs to penalties for tracking/restoration).
--   `data/`: Directory for JSON data files (`tasks.json`, `progress.json`, `rewards.json`).
--   `requirements.txt`: Project dependencies.
--   `Planning.txt`: The original project blueprint. 
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Create desktop app**:
+   ```bash
+   chmod +x create_desktop_app.sh
+   ./create_desktop_app.sh
+   ```
+
+4. **Launch**: Double-click `Level Up Tracker.app` on your Desktop!
+
+### **Option 2: Traditional Launch**
+1. **Clone and install** (steps 1-2 above)
+2. **Initialize data files**:
+   ```bash
+   cp data/progress_template.json data/progress.json
+   cp data/rewards_template.json data/rewards.json
+   ```
+3. **Run the app**:
+   ```bash
+   streamlit run app.py
+   ```
+
+## 📁 Project Structure
+
+```
+level-up-progress-tracker/
+├── app.py                          # Main Streamlit application
+├── auto_reset.py                   # Automated penalty assignment script
+├── system_flowchart.html           # Interactive system architecture diagram
+├── create_desktop_app.sh           # Desktop app creation script
+├── requirements.txt                # Python dependencies
+├── README.md                       # This file
+├── Planning.txt                    # Original project blueprint
+├── data/
+│   ├── tasks.json                  # Task definitions (included)
+│   ├── progress_template.json      # Template for personal progress
+│   ├── rewards_template.json       # Template for personal rewards
+│   ├── progress.json              # Your personal progress (not in repo)
+│   └── rewards.json               # Your personal rewards (not in repo)
+└── Level Up Tracker.app/          # Desktop application (created)
+```
+
+## ⚙️ Advanced Setup
+
+### **Automated Penalties (Cron Job)**
+
+Set up automatic penalty assignment for missed daily tasks:
+
+1. **Find your Python path**:
+   ```bash
+   which python
+   ```
+
+2. **Open crontab**:
+   ```bash
+   crontab -e
+   ```
+
+3. **Add the job** (runs daily at 1:00 AM):
+   ```
+   0 1 * * * /path/to/your/python /path/to/level-up-progress-tracker/auto_reset.py
+   ```
+
+### **Customization**
+
+- **Add Tasks**: Edit `data/tasks.json` to customize your task list
+- **Modify Rewards**: Update `data/rewards_template.json` for personal rewards
+- **Adjust Penalties**: Modify penalty lists in `auto_reset.py`
+- **Change XP Values**: Update XP amounts in `data/tasks.json`
+
+## 🎮 How to Play
+
+### **Daily Routine**
+1. **Open the app** (desktop icon or `streamlit run app.py`)
+2. **Check your tasks** for the day/week/month
+3. **Complete tasks** and click submit buttons
+4. **Earn XP** and watch your level increase
+5. **Claim rewards** when you reach level milestones
+6. **Check penalties** if you missed daily tasks
+
+### **Task Categories**
+- **Daily**: Reset every day at 1:00 AM (with 1-hour grace period)
+- **Weekly**: Reset every Monday at 1:00 AM
+- **Monthly**: Reset on the 1st of each month at 1:00 AM
+- **One-time**: Complete once and done
+
+### **Penalty System**
+- **1 missed daily task**: Small penalty (vacuum, stretching, etc.)
+- **2+ missed daily tasks**: Big penalty (run, cold shower, etc.)
+- **Automatic assignment**: Cron job runs daily at 1:00 AM
+- **Complete penalties**: Mark as done in the app
+
+## 🔧 System Architecture
+
+The application uses a modular architecture with clear separation of concerns:
+
+- **Data Layer**: JSON files for persistent storage
+- **Business Logic**: Python functions for XP calculation, task tracking
+- **UI Layer**: Streamlit components for user interaction
+- **Automation**: Cron job for background penalty assignment
+- **Desktop Integration**: Native app wrapper for easy access
+
+See `system_flowchart.html` for a detailed interactive diagram of the system architecture.
+
+## 🛡️ Privacy & Security
+
+- **Personal Data**: Your progress and rewards are stored locally and excluded from the repository
+- **Template System**: New users get clean template files to start fresh
+- **No Cloud Storage**: All data stays on your computer
+- **Secure Reset**: PIN-protected reset prevents accidental data loss
+
+## 🤝 Contributing
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **Solo Leveling** for the gamification inspiration
+- **Streamlit** for the amazing web app framework
+- **Plotly** for beautiful data visualizations
+- **The open source community** for all the tools that made this possible
+
+---
+
+**Ready to level up your life? Start your journey today!** 🚀✨ 

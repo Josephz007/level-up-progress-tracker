@@ -1,0 +1,29 @@
+{
+    "rewards": [
+        {
+            "name": "Movie Night",
+            "cost": 50,
+            "claimed": false
+        },
+        {
+            "name": "Gaming Session",
+            "cost": 30,
+            "claimed": false
+        },
+        {
+            "name": "Special Dinner",
+            "cost": 100,
+            "claimed": false
+        },
+        {
+            "name": "Shopping Spree",
+            "cost": 200,
+            "claimed": false
+        },
+        {
+            "name": "Weekend Trip",
+            "cost": 500,
+            "claimed": false
+        }
+    ]
+} 
