@@ -120,7 +120,7 @@ Set up automatic penalty assignment for missed daily tasks:
 - **Adjust Penalties**: Modify penalty lists in `auto_reset.py`
 - **Change XP Values**: Update XP amounts in `data/tasks.json`
 
-## 🎮 How to Play
+## 🎮 How to use
 
 ### **Daily Routine**
 1. **Open the app** (desktop icon or `streamlit run app.py`)
@@ -161,25 +161,6 @@ See `system_flowchart.html` for a detailed interactive diagram of the system arc
 - **No Cloud Storage**: All data stays on your computer
 - **Secure Reset**: PIN-protected reset prevents accidental data loss
 
-## 🤝 Contributing
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit changes**: `git commit -m 'Add amazing feature'`
-4. **Push to branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- **Solo Leveling** for the gamification inspiration
-- **Streamlit** for the amazing web app framework
-- **Plotly** for beautiful data visualizations
-- **The open source community** for all the tools that made this possible
-
----
-
-**Ready to level up your life? Start your journey today!** 🚀✨
+**Ready to level up your life? Start your journey today!** 🚀✨ 
