@@ -1,0 +1,176 @@
+{
+    "daily": [
+        {
+            "name": "10k steps",
+            "xp": 1,
+            "category": ["Health"],
+            "description": "Walk 10,000 steps"
+        },
+        {
+            "name": "Workout/Yoga",
+            "xp": 1,
+            "category": ["Health"],
+            "description": "Complete a workout/Yoga session"
+        },
+        {
+            "name": "150+g Protein",
+            "xp": 2,
+            "category": ["Health"],
+            "description": "Consume at least 150g of protein"
+        },
+        {
+            "name": "<2500 Calories",
+            "xp": 1,
+            "category": ["Health"],
+            "description": "Stay under 2500 calories"
+        },
+        {
+            "name": "20 Minutes Practice Hindi",
+            "xp": 3,
+            "category": ["Learning"],
+            "description": "Practice Hindi for at least 20 minutes"
+        },
+        {
+            "name": "20 Minutes Reading",
+            "xp": 2,
+            "category": ["Learning"],
+            "description": "Read for at least 20 minutes"
+        },
+        {
+            "name": "Sleep by 12PM",
+            "xp": 3,
+            "category": ["Health"],
+            "description": "Go to bed by midnight"
+        }
+    ],
+    "weekly": [
+        {
+            "name": "Cook something new",
+            "xp": 10,
+            "category": ["Hobby"],
+            "description": "Try a new recipe",
+            "frequency": 3
+        },
+        {
+            "name": "Clean apartment",
+            "xp": 10,
+            "category": ["Organization"],
+            "description": "Complete apartment cleaning"
+        },
+        {
+            "name": "Hangout with someone in person",
+            "xp": 10,
+            "category": ["Social"],
+            "description": "Meet with someone face-to-face",
+            "frequency": 3
+        },
+        {
+            "name": "Catch up with old friend",
+            "xp": 10,
+            "category": ["Social"],
+            "description": "Reconnect with an old friend",
+            "frequency": 3
+        },
+        {
+            "name": "Call family",
+            "xp": 10,
+            "category": ["Social"],
+            "description": "Have a meaningful conversation with family"
+        },
+        {
+            "name": "Coffee Chat with someone in industry",
+            "xp": 10,
+            "category": ["Career"],
+            "description": "Have a professional networking chat",
+            "frequency": 3
+        },
+        {
+            "name": "Learn/review a technical concept",
+            "xp": 10,
+            "category": ["Learning"],
+            "description": "Read a book chapter, watch a youtube video, etc.",
+            "frequency": 3
+        },
+        {
+            "name": "Practice public speaking",
+            "xp": 10,
+            "category": ["Career"],
+            "description": "Practice a speech or presentation.",
+            "frequency": 3
+        }
+    ],
+    "monthly": [
+        {
+            "name": "Go on a hike/trail",
+            "xp": 50,
+            "category": ["Health"],
+            "description": "Complete a hiking trail",
+            "frequency": 2
+        },
+        {
+            "name": "Spend within monthly budget",
+            "xp": 100,
+            "category": ["Organization"],
+            "description": "Stay within monthly spending limits"
+        },
+        {
+            "name": "Go on a date",
+            "xp": 30,
+            "category": ["Social"],
+            "description": "Go on a date with your partner or someone new.",
+            "frequency": 3
+        },
+        {
+            "name": "Try out a new hobby",
+            "xp": 30,
+            "category": ["Hobby"],
+            "description": "Try an activity you've never really done before/out of your comfort zone",
+            "frequency": 2
+        },
+        {
+            "name": "Do a hobby you enjoy",
+            "xp": 20,
+            "category": ["Hobby"],
+            "description": "Do an activity you enjoy",
+            "frequency": 3
+        }
+    ],
+    "one_time": [
+        {
+            "name": "First ever handstand push up",
+            "xp": 500,
+            "category": ["Health"],
+            "description": "Complete your first handstand push up"
+        },
+        {
+            "name": "Perform well on LDP final deliverable",
+            "xp": 200,
+            "category": ["Career"],
+            "description": "Excel in a work deliverable"
+        },
+        {
+            "name": "Get promoted",
+            "xp": 500,
+            "category": ["Career"],
+            "description": "Graduate from LDP"
+        },
+        {
+            "name": "First ever muscle up",
+            "xp": 200,
+            "category": ["Health"],
+            "description": "Complete your first muscle up"
+        },
+        {
+            "name": "Squat 365 Pounds",
+            "xp": 300,
+            "category": ["Health"],
+            "description": "Achieve a 365-pound squat"
+        },
+        {
+            "name": "Squat 405 Pounds",
+            "xp": 500,
+            "category": ["Health"],
+            "description": "Achieve a 405-pound squat"
+        }
+    ]
+} 

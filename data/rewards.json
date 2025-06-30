@@ -1,0 +1,66 @@
+{
+    "rewards": [
+        {
+            "level": 5,
+            "description": "$50 to spend on yourself",
+            "claimed": true
+        },
+        {
+            "level": 10,
+            "description": "$50 to spend on yourself",
+            "claimed": true
+        },
+        {
+            "level": 15,
+            "description": "$50 to spend on yourself",
+            "claimed": true
+        },
+        {
+            "level": 20,
+            "description": "$50 to spend on yourself",
+            "claimed": true
+        },
+        {
+            "level": 25,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        },
+        {
+            "level": 30,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        },
+        {
+            "level": 35,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        },
+        {
+            "level": 40,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        },
+        {
+            "level": 45,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        },
+        {
+            "level": 50,
+            "description": "$50 to spend on yourself",
+            "claimed": false
+        }
+    ],
+    "money_tracking": {
+        "total_earned": 200.0,
+        "total_spent": 120.0,
+        "current_balance": 80.0,
+        "spending_history": [
+            {
+                "date": "2025-06-22",
+                "amount": 120.0,
+                "description": "Shoes"
+            }
+        ]
+    }
+}

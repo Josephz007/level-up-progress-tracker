@@ -1,0 +1,154 @@
+Leveling Up App
+
+Project Blueprint: Level Up – Life RPG Tracker
+
+Project Context & Philosophy
+- Inspired by Solo Leveling, this project is designed to gamify real-life self-improvement 
+by treating tasks like RPG quests and progress like leveling up. 
+- The goal is to build consistency and long-term personal growth by tracking daily, weekly, 
+monthly, and one-time tasks with a reward and penalty system. 
+- Over time, these small actions compound, creating meaningful transformation.
+
+Overall Goals
+* A homescreen-level app (desktop dashboard, MacOS 15.5)
+* Intuitive and beautiful, checklist-style interface
+* Long-term tracking of habits and personal goals
+* Visual feedback for progress (XP, level, streaks)
+* Built-in accountability through penalties and rewards
+
+Core Components
+1. Task Checklist System
+* Tasks are grouped by frequency:
+    * Daily
+        * 10k steps (1xp)
+        * Workout (1xp)
+        * 150+g Protein (2xp)
+        * <2500 Calories (1xp)
+        * 20 Minutes Practice Hindi (3xp)
+        * 20 Minutes Reading (2xp)
+        * Sleep by 12PM (3xp)
+    * Weekly
+        * Cook something new (10xp)
+        * Clean apartment (10xp)
+        * Hangout with someone in person (10xp)
+        * Catch up with old friend (10xp)
+        * Call family for 5+ minutes (10xp)
+        * Coffee Chat with someone in industry (10xp)
+    * Monthly
+        * Go on a hike/trail (50xp)
+        * Spend within monthly budget (100xp)
+    * One-time
+        * First ever handstand push up (500xp)
+        * Perform well on deliverable  (200xp)
+        * First ever muscle up (200xp)
+        * Squat 365 Pounds (300xp)
+        * Squat 405 Pounds (500xp)
+* Each task has:
+    * Name / description
+    * XP value
+    * Optional tags (e.g. Health, Career, Social)
+    * Completion toggle (checkbox)
+* Unchecked tasks before “Submit” time are penalized the next day
+    * Penalties: e.g., cold shower, extra workout (decided later)
+
+
+2. Daily Submission Flow
+* At night, the user hits a “Submit Day” button
+    * All checked tasks are converted to XP
+    * Unchecked daily tasks lead to a penalty that will be logged 
+    (need 1 unchecked task to unlock small penalty (Vacuum floor) 
+    need 2 unchecked tasks to unlock penalty (1 mile run or cold shower next day))
+    * Completed weekly/monthly/one-time tasks contribute if they’re completed that day, 
+    and will remain checked until it is eligible next. 
+* All data is saved (date, what was completed, earned XP, level, etc.)
+
+
+3. XP & Leveling System
+* XP is linear:
+    * 100 XP per level
+* Daily tasks = low XP (1-3xp)
+* Weekly = moderate (~10xp)
+* Monthly = higher (10-100xp)
+* One-time = major XP (100xp+)
+* User gains levels automatically
+
+
+4. Rewards System
+* Rewards are tied to level milestones (e.g., every 10 levels)
+    * Example: “Level 10 → $50 to spend on yourself”
+    * Rewards can be configured in a list (customizable)
+
+
+5. Penalty System
+* If daily tasks are not completed:
+    * Penalties triggered the next day
+    * Configurable per user: e.g., “If I don’t finish all dailies, I must run 1 mile tomorrow”
+    * Again, unchecked daily tasks lead to a penalty that will be logged 
+    (need 1 unchecked task to unlock small penalty (Vacuum floor) 
+    need 2 unchecked tasks to unlock penalty (1 mile run or cold shower next day))
+* Penalties logged for tracking
+* Option to mark penalty as "completed" the next day
+
+6. Customizability/Other screens (optional):
+* Task Manager: Add/edit tasks
+* Reward Log: History of rewards unlocked
+* Stats/Analytics: XP history, streaks, penalty logs
+
+
+
+Interface Design (UI Sketch)
+Main Screen (Homescreen Widget Style):
+
+Example 
+------------------------------------------------------
+|         Level Up: Life RPG Tracker                 |
+|  Level: 4    XP: 320/400     [ Submit Day ]        |
+------------------------------------------------------
+| Daily Tasks (Due Today)                            |
+| [ ] Hit Protein Goal (10 XP)                       |
+| [ ] 10k Steps (10 XP)                              |
+| [ ] Study 1hr (15 XP)                              |
+|                                                    |
+| Weekly Tasks                                       |
+| [ ] Finish book chapter (30 XP)                    |
+| [✓] Weekly meal prep (20 XP)                       |
+|                                                    |
+| Monthly Goals                                      |
+| [ ] Complete side project milestone (50 XP)        |
+|                                                    |
+| Yearly Goal                                        |
+| [ ] Give a TEDx talk (150 XP)                      |
+------------------------------------------------------
+| Penalties: 1 due tomorrow                          |
+| Reward Progress: 6/10 Levels → $50 Self-Treat      |
+------------------------------------------------------
+
+
+
+Core Architecture
+Data Files (can be JSON at first, upgrade to SQLite later):
+* tasks.json: stores tasks and metadata
+* progress.json: stores daily logs, XP, levels, penalties
+* rewards.json: reward thresholds and statuses
+
+Deployment Plan – Streamlit App + Homescreen Shortcut 
+Streamlit
+* Uses Python 
+* Fast to prototype and easy to modify
+* Lightweight web UI with interactive checkboxes and buttons
+How To Deploy
+1. Build your app in Streamlit (streamlit run tracker.py)
+2. Open it in Chrome
+3. Go to Chrome menu > More Tools > Create Shortcut
+4. Name it (e.g., “Level Up Tracker”), check “Open as window”
+5. Drag the new app shortcut to your Dock
+
+Project Timeline
+1. Basic UI with checkboxes grouped by task type
+2. XP system with level tracking
+3. "Submit Day" system: calculate XP, update level, log penalties
+4. Penalty logging + reminder system
+5. Level-up reward system
+6. For later: Visual charts, trends, streaks
+7. For later: Streamlit or Electron GUI for persistent app
+

@@ -1,0 +1,503 @@
+<!--
+in terminal:
+open -a "Google Chrome" system_flowchart.html
+-->
+
+<!DOCTYPE html>
+<!-- tells the browser this is an HTML5 document -->
+<html lang="en">
+<head> <!-- <head> section: metadata about the webpage - (not visible but help the browser understand the page) -->
+    <meta charset="UTF-8"> <!-- use UTF-8 encoding for special characters like emojis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This makes the page responsive - it will look good on phones and tablets -->
+    <title>Level Up - Life RPG Tracker System Flow</title> <!-- title in browswer tab -->
+    
+    <!-- Below: The <style> section contains CSS which controls how the page looks (aesthetics) -->
+    <style>
+        /* CSS Reset - removes default browser styling because we want to make our own design */
+        * {
+            margin: 0;          /* Removes default spacing around elements */
+            padding: 0;         /*Removes default internal spacing */
+            box-sizing: border-box; /* Makes padding and borders part of element width */
+        }
+
+        /* Styles for the entire page body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* purple gradient background */
+            min-height: 100vh;  /* Makes the background cover the full viewport height */
+            padding: 20px;      /* Adds 20px spacing around the entire page */
+        }
+
+        /* Main container that holds all the content */
+        .container {
+            max-width: 1400px;  /* Maximum width of the content area */
+            margin: 0 auto;     /* Centers the container horizontally */
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+            border-radius: 20px; /* Rounds the corners */
+            padding: 30px;      /* Adds internal spacing */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
+        }
+
+        /* Main heading styles */
+        h1 {
+            text-align: center; /* Centers the text */
+            color: #2c3e50;     /* Dark blue-gray color */
+            font-size: 2.5em;   /* Large font size */
+            margin-bottom: 10px; /* Space below the heading */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to text */
+        }
+
+        /* Subtitle styling */
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;     /* Gray color */
+            font-size: 1.2em;   /* Medium font size */
+            margin-bottom: 40px; /* Large space below */
+        }
+
+        /* Grid layout for the three main sections */
+        .flowchart {
+            display: grid;      /* Uses CSS Grid for layout */
+            grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+            gap: 40px;          /* Space between grid items */
+            margin-bottom: 40px;
+        }
+
+        /* Individual section styling (Data Storage, Core Functions, UI Components) */
+        .section {
+            background: white;  /* White background */
+            border-radius: 15px; /* Rounded corners */
+            padding: 25px;      /* Internal spacing */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            border: 2px solid #e8f4fd; /* Light blue border */
+            position: relative; /* Needed for positioning child elements */
+        }
+
+        /* Section title styling (the colored headers) */
+        .section-title {
+            font-size: 1.4em;   /*Large font size */
+            font-weight: bold;   /* Makes text bold */
+            color: #2c3e50;     /* Dark color */
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;      /* Internal spacing */
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Purple gradient background */
+            color: white;       /* White text */
+            border-radius: 10px; /* Rounded corners */
+            margin: -25px -25px 20px -25px; /* Negative margins to extend beyond section padding */
+        }
+
+        /* Individual component boxes (tasks.json, load_json_file(), etc.) */
+        .component {
+            background: #f8f9fa; /* Light gray background */
+            border: 2px solid #dee2e6; /* Gray border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px;      /* Internal spacing */
+            margin: 15px 0;     /* Vertical spacing between components */
+            position: relative;
+            transition: all 0.3s ease; /* Smooth animation for hover effects */
+        }
+
+        /* Hover effect - when you move mouse over a component */
+        .component:hover {
+            transform: translateY(-2px); /* Moves component up slightly */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Adds shadow */
+            border-color: #667eea; /* Changes border color to blue */
+        }
+
+        /* Component title styling */
+        .component-title {
+            font-weight: bold;  /* Bold text */
+            color: #495057;     /* Dark gray color */
+            margin-bottom: 8px; /*Space below title */
+            font-size: 1.1em;   /* Slightly larger font */
+        }
+
+        /* Component description styling */
+        .component-desc {
+            color: #6c757d;     /* Medium gray color */
+            font-size: 0.9em;   /* Smaller font size */
+            line-height: 1.4;   /* Space between lines */
+        }
+
+        /* Special styling for data file components (green gradient) */
+        .data-file {
+            background: linear-gradient(135deg, #28a745, #20c997); /* Green gradient */
+            color: white;       /* White text */
+            border: none;       /* No border */
+        }
+
+        /* Override text colors for data file components */
+        .data-file .component-title {
+            color: white;       /* White title */
+        }
+
+        .data-file .component-desc {
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white description */
+        }
+
+        /* Special styling for function components (blue gradient) */
+        .function {
+            background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient */
+            color: white;
+            border: none;
+        }
+
+        /* Override text colors for function components */
+        .function .component-title {
+            color: white;
+        }
+
+        .function .component-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Special styling for UI component components (orange-pink gradient) */
+        .ui-component {
+            background: linear-gradient(135deg, #fd7e14, #e83e8c); /* Orange to pink gradient */
+            color: white;
+            border: none;
+        }
+
+        /* Override text colors for UI component components */
+        .ui-component .component-title {
+            color: white;
+        }
+
+        .ui-component .component-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Arrow section styling*/
+        .arrow-section {
+            grid-column: 1 / -1; /* Spans all columns */
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Arrow styling */
+        .arrow {
+            font-size: 2em;     /* Large arrow size */
+            color: #667eea;     /* Blue color */
+            margin: 10px;       /* Space around arrows */
+            animation: pulse 2s infinite; /* Makes arrows pulse */
+        }
+
+        /* CSS animation for pulsing effect */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }     /* Normal size */
+            50% { transform: scale(1.1); }        /* 10% larger */
+        }
+
+        /* Flow arrow styling (not used in this version but kept for reference) */
+        .flow-arrow {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform-origin: left center;
+        }
+
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #764ba2;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        /* Legend section styling */
+        .legend {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        /* Legend title styling */
+        .legend-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Legend items grid layout */
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 20px;
+        }
+
+        /* Individual legend item styling */
+        .legend-item {
+            display: flex;      /* Flexbox layout */
+            align-items: center; /* Centers items vertically */
+            gap: 15px;          /* Space between color box and text */
+        }
+
+        /* Legend color box styling */
+        .legend-color {
+            width: 30px;        /* Fixed width */
+            height: 30px;       /* Fixed height */
+            border-radius: 8px; /* Rounded corners */
+            border: 2px solid #dee2e6; /* Gray border */
+        }
+
+        /* Legend text styling */
+        .legend-text {
+            color: #495057;
+            font-weight: 500;   /* Medium bold */
+        }
+
+        /* Timeline section styling */
+        .timeline {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        /* Timeline title styling*/
+        .timeline-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Individual timeline item styling */
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea; /* Blue left border */
+        }
+
+        /* Timeline time styling */
+        .timeline-time {
+            font-weight: bold;
+            color: #667eea;
+            min-width: 120px;   /* Fixed width for alignment */
+        }
+
+        /* Timeline description styling */
+        .timeline-desc {
+            color: #495057;
+            margin-left: 20px;
+        }
+
+        /* Responsive design - changes layout on smaller screens*/
+        @media (max-width: 1200px) {
+            .flowchart {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+
+<!-- The <body> section contains all the visible content of the webpage -->
+<body>
+    <!-- Main container div that holds everything -->
+    <div class="container">
+        <!-- Main heading with emoji -->
+        <h1>🎮 Level Up - Life Progress Tracker</h1>
+        <!-- Subtitle -->
+        <p class="subtitle">System Architecture & Data Flow</p>
+
+
+        <!-- Main flowchart grid with three sections -->
+        <div class="flowchart">
+            <!-- First section: Data Storage -->
+            <div class="section">
+                <!-- Section header -->
+                <div class="section-title">📁 Data Storage</div>
+                
+                <!-- Individual data file component -->
+                <div class="component data-file">
+                    <div class="component-title">tasks.json</div>
+                    <div class="component-desc">Stores all task definitions with categories (daily, weekly, monthly, one-time), XP values, and frequency settings</div>
+                </div>
+
+                <!-- Individual data file component -->
+                <div class="component data-file">
+                    <div class="component-title">progress.json</div>
+                    <div class="component-desc">Tracks completed tasks, XP earned, penalties, money, and task history with timestamps</div>
+                </div>
+
+                <!-- Individual data file component -->
+                <div class="component data-file">
+                    <div class="component-title">rewards.json</div>
+                    <div class="component-desc">Defines available rewards, their costs, and redemption status</div>
+                </div>
+            </div>
+
+            <!-- Second section: Core Functions -->
+            <div class="section">
+                <!-- Section header -->
+                <div class="section-title">⚙️ Core Functions</div>
+                
+                <!-- Individual function component -->
+                <div class="component function">
+                    <div class="component-title">load_json_file() / save_json_file()</div>
+                    <div class="component-desc">Handles reading and writing JSON data files with error handling</div>
+                </div>
+
+                <!-- Individual function component -->
+                <div class="component function">
+                    <div class="component-title">initialize_session_state()</div>
+                    <div class="component-desc">Loads all data into Streamlit session state, reloads on every rerun to catch external changes</div>
+                </div>
+
+                <!-- Individual function component -->
+                <div class="component function">
+                    <div class="component-title">calculate_level() / calculate_xp_to_next_level()</div>
+                    <div class="component-desc">Converts XP to levels (100 XP per level) and calculates progress to next level</div>
+                </div>
+
+                <!-- Individual function component-->
+                <div class="component function">
+                    <div class="component-title">get_time_left() / get_period_key()</div>
+                    <div class="component-desc">Manages grace periods (1-hour after midnight) and generates period keys for task tracking</div>
+                </div>
+
+                <!-- Individual function component -->
+                <div class="component function">
+                    <div class="component-title">mark_tasks_completed() / get_task_completion_count()</div>
+                    <div class="component-desc">Handles task completion tracking with support for multiple completions per period</div>
+                </div>
+
+                <!-- Individual function component -->
+                <div class="component function">
+                    <div class="component-title">assign_penalties()</div>
+                    <div class="component-desc">Assigns small/big penalties based on number of uncompleted tasks</div>
+                </div>
+            </div>
+
+            <!-- Third section: UI Components -->
+            <div class="section">
+                <!-- Section header -->
+                <div class="section-title">🖥️ UI Components</div>
+                
+                <!-- Individual UI component -->
+                <div class="component ui-component">
+                    <div class="component-title">render_task_section()</div>
+                    <div class="component-desc">Creates task checkboxes with timers, grace period indicators, and completion tracking</div>
+                </div>
+
+                <!-- Individual UI component -->
+                <div class="component ui-component">
+                    <div class="component-title">render_radar_chart()</div>
+                    <div class="component-desc">Displays XP earned per category with fixed 1000 XP max scale</div>
+                </div>
+
+                <!-- Individual UI component -->
+                <div class="component ui-component">
+                    <div class="component-title">render_task_history()</div>
+                    <div class="component-desc">Shows task completion log with delete functionality and XP deduction</div>
+                </div>
+
+                <!-- Individual UI component -->
+                <div class="component ui-component">
+                    <div class="component-title">render_money_tracking()</div>
+                    <div class="component-desc">Manages money balance, spending history, and reward claiming</div>
+                </div>
+
+                <!-- Individual UI component -->
+                <div class="component ui-component">
+                    <div class="component-title">process_task_submission()</div>
+                    <div class="component-desc">Handles form submissions, updates progress, and locks tasks until reset</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flow sections side by side -->
+        <div class="flowchart" style="grid-template-columns: repeat(2, 1fr);">
+            <!-- Main application flow section -->
+            <div class="section">
+                <!-- Section header -->
+                <div class="section-title">🔄 Main Application Flow</div>
+                
+                <!-- Flow description with arrows -->
+                <div style="text-align: center; font-size: 1.1em; line-height: 1.8; color: #495057;">
+                    <!-- Each step in the flow -->
+                    <strong>1. App Startup:</strong> initialize_session_state() loads all JSON data into session state<br>
+                    <!-- Arrow emoji -->
+                    <span class="arrow">⬇️</span><br>
+                    <strong>2. User Interaction:</strong> User checks tasks and clicks submit buttons<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>3. Task Processing:</strong> process_task_submission() validates and saves completions<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>4. Data Updates:</strong> XP calculated, progress saved, UI refreshed<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>5. Display Updates:</strong> Radar chart, task history, and money tracking updated<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>6. Grace Period:</strong> Tasks remain locked until period reset (1:00 AM)
+                </div>
+            </div>
+
+            <!-- Auto reset system section -->
+            <div class="section">
+                <!-- Section header -->
+                <div class="section-title">🤖 Auto Reset System (Cron Job)</div>
+                
+                <!-- Auto reset flow description -->
+                <div style="text-align: center; font-size: 1.1em; line-height: 1.8; color: #495057;">
+                    <strong>Daily at 1:00 AM:</strong> Cron job runs auto_reset.py<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>Check Yesterday:</strong> Examines daily tasks from previous day<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>Count Uncompleted:</strong> Identifies tasks not marked as completed<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>Assign Penalties:</strong> Adds penalties to progress.json based on count<br>
+                    <span class="arrow">⬇️</span><br>
+                    <strong>Next App Load:</strong> User sees new penalties when app refreshes
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline section-->
+        <div class="timeline">
+            <!-- Timeline title -->
+            <div class="timeline-title">⏰ Daily Timeline</div>
+            
+            <!-- Timeline item for 12:00 AM -->
+            <div class="timeline-item">
+                <!-- Time -->
+                <div class="timeline-time">12:00 AM</div>
+                <!-- Description -->
+                <div class="timeline-desc">Grace period begins - users can still complete previous day's tasks</div>
+            </div>
+            
+            <!-- Timeline item for 1:00 AM -->
+            <div class="timeline-item">
+                <div class="timeline-time">1:00 AM</div>
+                <div class="timeline-desc">Grace period ends - cron job runs auto_reset.py to assign penalties</div>
+            </div>
+            
+            <!-- Timeline item for any time -->
+            <div class="timeline-item">
+                <div class="timeline-time">Any Time</div>
+                <div class="timeline-desc">Users can open app, complete tasks, claim rewards, and view progress</div>
+            </div>
+            
+            <!-- Timeline item for 11:59 PM -->
+            <div class="timeline-item">
+                <div class="timeline-time">11:59 PM</div>
+                <div class="timeline-desc">Deadline for daily tasks - after this, grace period begins again</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

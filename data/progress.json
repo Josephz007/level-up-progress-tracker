@@ -1,0 +1,337 @@
+{
+    "current_level": 20,
+    "current_xp": 1970,
+    "xp_to_next_level": 30,
+    "daily_logs": [],
+    "detailed_logs": [
+        {
+            "name": "Workout/Yoga",
+            "xp": 1,
+            "category": [
+                "Health"
+            ],
+            "type": "daily",
+            "date": "2025-06-22",
+            "period_key": "2025-06-22"
+        },
+        {
+            "name": "<2500 Calories",
+            "xp": 1,
+            "category": [
+                "Health"
+            ],
+            "type": "daily",
+            "date": "2025-06-22",
+            "period_key": "2025-06-22"
+        },
+        {
+            "name": "20 Minutes Practice Hindi",
+            "xp": 3,
+            "category": [
+                "Learning"
+            ],
+            "type": "daily",
+            "date": "2025-06-22",
+            "period_key": "2025-06-22"
+        },
+        {
+            "name": "20 Minutes Reading",
+            "xp": 2,
+            "category": [
+                "Learning"
+            ],
+            "type": "daily",
+            "date": "2025-06-22",
+            "period_key": "2025-06-22"
+        },
+        {
+            "name": "Sleep by 12PM",
+            "xp": 3,
+            "category": [
+                "Health"
+            ],
+            "type": "daily",
+            "date": "2025-06-22",
+            "period_key": "2025-06-22"
+        },
+        {
+            "name": "First ever handstand push up",
+            "xp": 500,
+            "category": [
+                "Health"
+            ],
+            "type": "one-time",
+            "date": "2025-06-22",
+            "period_key": "one-time"
+        },
+        {
+            "name": "Perform well on LDP final deliverable",
+            "xp": 200,
+            "category": [
+                "Career"
+            ],
+            "type": "one-time",
+            "date": "2025-06-22",
+            "period_key": "one-time"
+        },
+        {
+            "name": "Get promoted",
+            "xp": 500,
+            "category": [
+                "Career"
+            ],
+            "type": "one-time",
+            "date": "2025-06-22",
+            "period_key": "one-time"
+        },
+        {
+            "name": "First ever muscle up",
+            "xp": 200,
+            "category": [
+                "Health"
+            ],
+            "type": "one-time",
+            "date": "2025-06-22",
+            "period_key": "one-time"
+        },
+        {
+            "name": "Squat 365 Pounds",
+            "xp": 300,
+            "category": [
+                "Health"
+            ],
+            "type": "one-time",
+            "date": "2025-06-22",
+            "period_key": "one-time"
+        },
+        {
+            "name": "Go on a hike/trail",
+            "xp": 50,
+            "category": [
+                "Health"
+            ],
+            "type": "monthly",
+            "date": "2025-06-22",
+            "period_key": "2025-06"
+        },
+        {
+            "name": "Spend within monthly budget",
+            "xp": 100,
+            "category": [
+                "Organization"
+            ],
+            "type": "monthly",
+            "date": "2025-06-22",
+            "period_key": "2025-06"
+        },
+        {
+            "name": "Go on a date",
+            "xp": 30,
+            "category": [
+                "Social"
+            ],
+            "type": "monthly",
+            "date": "2025-06-22",
+            "period_key": "2025-06"
+        },
+        {
+            "name": "Cook something new",
+            "xp": 10,
+            "category": [
+                "Hobby"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Clean apartment",
+            "xp": 10,
+            "category": [
+                "Organization"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Hangout with someone in person",
+            "xp": 10,
+            "category": [
+                "Social"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Catch up with old friend",
+            "xp": 10,
+            "category": [
+                "Social"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Call family",
+            "xp": 10,
+            "category": [
+                "Social"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Coffee Chat with someone in industry",
+            "xp": 10,
+            "category": [
+                "Career"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Learn/review a technical concept",
+            "xp": 10,
+            "category": [
+                "Learning"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "Practice public speaking",
+            "xp": 10,
+            "category": [
+                "Career"
+            ],
+            "type": "weekly",
+            "date": "2025-06-22",
+            "period_key": "2025-W25"
+        },
+        {
+            "name": "1 mile run",
+            "xp": 0,
+            "category": [
+                "Penalty"
+            ],
+            "type": "penalty",
+            "date": "2025-06-26",
+            "penalty_id": "pen-1750752029.483124-2619"
+        }
+    ],
+    "penalties": [
+        {
+            "id": "pen-1750752029.483124-2619",
+            "due_date": "2025-06-25",
+            "description": "1 mile run",
+            "completed": true
+        },
+        {
+            "id": "pen-1750838402.180315-3578",
+            "due_date": "2025-06-26",
+            "description": "1 mile run",
+            "completed": false
+        },
+        {
+            "id": "pen-1750924801.117166-4779",
+            "due_date": "2025-06-27",
+            "description": "Cold shower",
+            "completed": false
+        },
+        {
+            "id": "pen-1751097602.800038-6315",
+            "due_date": "2025-06-29",
+            "description": "Cold shower",
+            "completed": false
+        }
+    ],
+    "completed_tasks": {
+        "daily": {
+            "10k steps": {
+                "2025-06-22": 0
+            },
+            "Workout": {
+                "2025-06-22": 0
+            },
+            "150+g Protein": {
+                "2025-06-22": 0
+            },
+            "<2500 Calories": {
+                "2025-06-22": 1
+            },
+            "20 Minutes Practice Hindi": {
+                "2025-06-22": 1
+            },
+            "20 Minutes Reading": {
+                "2025-06-22": 1
+            },
+            "Sleep by 12PM": {
+                "2025-06-22": 1
+            },
+            "Workout/Yoga": {
+                "2025-06-22": 1
+            }
+        },
+        "weekly": {
+            "Cook something new": {
+                "2025-W25": 1
+            },
+            "Clean apartment": {
+                "2025-W25": 1
+            },
+            "Hangout with someone in person": {
+                "2025-W25": 1
+            },
+            "Catch up with old friend": {
+                "2025-W25": 1
+            },
+            "Call family": {
+                "2025-W25": 1
+            },
+            "Coffee Chat with someone in industry": {
+                "2025-W25": 1
+            },
+            "Learn/review a technical concept": {
+                "2025-W25": 1
+            },
+            "Practice public speaking": {
+                "2025-W25": 1
+            }
+        },
+        "monthly": {
+            "Go on a hike/trail": {
+                "2025-06": 1
+            },
+            "Spend within monthly budget": {
+                "2025-06": 1
+            },
+            "Go on a date": {
+                "2025-06": 1
+            }
+        },
+        "one_time": [],
+        "one-time": {
+            "First ever handstand push up": {
+                "one-time": 1
+            },
+            "Perform well on LDP final deliverable": {
+                "one-time": 1
+            },
+            "Get promoted": {
+                "one-time": 1
+            },
+            "First ever muscle up": {
+                "one-time": 1
+            },
+            "Squat 365 Pounds": {
+                "one-time": 1
+            }
+        }
+    }
+}
