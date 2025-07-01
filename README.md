@@ -33,9 +33,11 @@ A gamified desktop application that transforms your daily tasks and goals into a
 - **Granular Control**: Delete individual tasks/penalties from history
 
 ### 🖥️ **Desktop Integration**
-- **Native Desktop App**: Double-click launcher for macOS
+- **Native Desktop App**: Double-click launcher for macOS (`Level Up.app`)
+- **Automatic Conda Support**: Uses your active conda environment (e.g., `tf`) for Streamlit and dependencies
 - **Automatic Browser Launch**: Opens app in default browser
 - **Background Server**: Runs Streamlit server automatically
+- **Custom App Icon**: Uses your provided `levelup_logo.png` as the app icon
 - **Easy Installation**: Simple setup scripts for desktop integration
 
 ## 🚀 Quick Start
@@ -53,12 +55,18 @@ A gamified desktop application that transforms your daily tasks and goals into a
    ```
 
 3. **Create desktop app**:
-   ```bash
-   chmod +x create_desktop_app.sh
-   ./create_desktop_app.sh
-   ```
+   (If not already present, follow your setup script or instructions to create `Level Up.app`)
 
-4. **Launch**: Double-click `Level Up Tracker.app` on your Desktop!
+4. **Launch**: Double-click `Level Up.app`! The app will automatically use your conda environment and open in your browser.
+
+#### **Troubleshooting: App Icon Not Showing?**
+If the app icon is blank or doesn't update:
+- Try killing the Dock and Finder:
+  ```bash
+  killall Dock; killall Finder
+  ```
+- Move the app to a different folder and back
+- Restart your Mac if needed
 
 ### **Option 2: Traditional Launch**
 1. **Clone and install** (steps 1-2 above)
@@ -71,6 +79,18 @@ A gamified desktop application that transforms your daily tasks and goals into a
    ```bash
    streamlit run app.py
    ```
+
+## 🖥️ Build the macOS Desktop App Bundle
+
+To create the Level Up.app bundle on your Mac, just run:
+
+```bash
+bash create_desktop_app.sh
+```
+
+- This will build the app bundle from your code and icon.
+- After running, you can double-click `Level Up.app` to launch the tracker like a native app!
+- If you update your code or icon, just re-run the script to refresh the app bundle.
 
 ## 📁 Project Structure
 
@@ -88,7 +108,15 @@ level-up-progress-tracker/
 │   ├── rewards_template.json       # Template for personal rewards
 │   ├── progress.json              # Your personal progress (not in repo)
 │   └── rewards.json               # Your personal rewards (not in repo)
-└── Level Up Tracker.app/          # Desktop application (created)
+├── levelup_logo.png                # Custom app icon (user-provided)
+└── Level Up.app/                   # Desktop application bundle
+    ├── Contents/
+    │   ├── Info.plist              # macOS app metadata
+    │   ├── MacOS/
+    │   │   └── launcher            # Bash launcher (activates conda, runs Python)
+    │   └── Resources/
+    │       ├── icon.png            # App icon (copied from levelup_logo.png)
+    │       └── launch_desktop.py   # Python launcher script
 ```
 
 ## ⚙️ Advanced Setup

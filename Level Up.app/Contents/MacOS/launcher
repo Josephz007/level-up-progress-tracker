@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get the directory where the app is located
+APP_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
+cd "$APP_DIR/Contents/Resources"
+
+# Try to activate conda environment if available
+if [ -f "$HOME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+    source "$HOME/opt/anaconda3/etc/profile.d/conda.sh"
+    conda activate tf 2>/dev/null || true
+fi
+
+# Launch the Python script
+python3 launch_desktop.py
